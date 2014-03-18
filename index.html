@@ -1,0 +1,62 @@
+<html>
+<head>
+<meta charset="UTF-8">
+
+<script src="js/jquery.min.js"></script>
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+
+<link rel="stylesheet" href="style.css" />
+
+<script type="text/javascript">
+var GEOPORTAL_API_KEY="7jvw5aook6d6l0s0v7keyz99" ;
+</script>
+
+
+<script type="text/javascript">
+	
+/**
+ * Renvoie l'URL de la couche geoportail
+ */
+function getGeoportalURL( layerName ){
+	var url = "http://wxs.ign.fr/" ;
+	url += GEOPORTAL_API_KEY ;
+	url += "/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile";
+	url += "&LAYER="+layerName;
+	url += "&STYLE=normal&FORMAT=image/jpeg";
+	url += "&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}" ;
+	return url ;
+}
+
+var map = null ;
+
+$(document).ready(function(){
+	
+	// attention : lat/lon
+	map = L.map('map').setView(
+		[45.85, 3.33], 
+		5
+	);
+	
+	var carte = L.tileLayer(
+		getGeoportalURL("GEOGRAPHICALGRIDSYSTEMS.MAPS"), 
+		{
+			maxZoom: 19
+		}
+	) ;
+	
+	carte.addTo(map);
+});
+
+</script>
+
+</head>
+<body>
+
+<div id="map">
+
+</div>
+
+</body>
+</html>
