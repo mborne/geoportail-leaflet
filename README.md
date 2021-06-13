@@ -2,7 +2,7 @@
 
 ## Description
 
-Exemple minimal d'intégration des couches géoportail dans leafet.
+Exemple minimal d'intégration des couches géoportail dans leafet : [index.html](index.html).
 
 ## Principe
 
@@ -13,7 +13,7 @@ Exemple minimal d'intégration des couches géoportail dans leafet.
  * Renvoie l'URL de la couche geoportail
  */
 function getGeoportalURL(layerName) {
-    var url = "http://wxs.ign.fr/";
+    var url = "https://wxs.ign.fr/";
     url += GEOPORTAL_API_KEY;
     url += "/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile";
     url += "&LAYER=" + layerName;
