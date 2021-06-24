@@ -2,7 +2,7 @@
 
 ## Description
 
-Exemple minimal d'intégration des couches géoportail dans leafet : [index.html](index.html).
+Exemple minimal d'intégration des couches géoportail dans leafet : [minimal.html](minimal.html).
 
 ## Principe
 
@@ -26,12 +26,14 @@ function getGeoportalURL(layerName) {
 * S'appuyer sur cette méthode pour créer des couches leaflet :
 
 ```js
-var carte = L.tileLayer(
+var layerPlanIgn = L.tileLayer(
     getGeoportalURL("GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2"),
     {
+        attribution: '&copy; <a href="https://www.ign.fr/">IGN</a>',
         maxZoom: 19
     }
 );
+layerPlanIgn.addTo(map);
 ```
 
 ## Voir aussi

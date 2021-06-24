@@ -48,14 +48,15 @@
 				5
 			);
 
-			var carte = L.tileLayer(
+			var layerPlanIgn = L.tileLayer(
 				getGeoportalURL("GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2"),
 				{
+					attribution: '&copy; <a href="https://www.ign.fr/">IGN</a>',
 					maxZoom: 19
 				}
 			);
 
-			carte.addTo(map);
+			layerPlanIgn.addTo(map);
 		});
 
 	</script>
